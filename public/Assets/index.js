@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import people from './people.svg';
 
 
-export   {logo}
+export { logo, people }

@@ -195,9 +195,10 @@ const icons = {
 
     ),
 };
-
-const Icon = ({ type }) => {
-    return <>{icons[type]}</>;
+const Icon = ({ type, className = '' }) => {
+    const icon = icons[type];
+    return icon ? React.cloneElement(icon, { className: `${icon.props.className} ${className}` }) : null;
 };
+
 
 export default Icon;
