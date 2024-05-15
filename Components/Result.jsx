@@ -3,7 +3,7 @@ import Quote from './Quote'
 
 const Result = () => {
     return (
-        <div className='bg-[#D8E6FD] flex justify-around p-[1rem] gap-4 p-[2.5rem]'>
+        <div className='bg-[#D8E6FD] flex justify-around p-[1rem] gap-4 p-[2.5rem] relative mt-[5rem]'>
             <aside className='basis-[30%] '>
                 <h2 className='text-[#0946AE] text-4xl font-bold'>Our result oriented approach</h2>
                 <div>

@@ -55,3 +55,24 @@ html{
   }
 }
 
+
+.sticky-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sticky-section div {
+  overflow-y: auto;
+  height: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.sticky-section div::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+

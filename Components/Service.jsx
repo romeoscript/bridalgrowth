@@ -2,44 +2,38 @@
 import React, { useEffect, useRef } from 'react'
 import ServiceCard from './ServiceCard'
 import { people } from '@/public/Assets/'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Service = () => {
-    const ref = useRef(null)
-    gsap.registerPlugin(ScrollTrigger)
+    const sectionRef = useRef(null);
 
     useEffect(() => {
-        const element = ref.current
+        const handleScroll = () => {
+            const section = sectionRef.current;
+            if (!section) return;
 
-        // Set initial state
-        gsap.set(".second-aside", { autoAlpha: 0, y: 50, position: "absolute", top: 0, left: 0, right: 0 })
+            const rect = section.getBoundingClientRect();
+            const inView = rect.top <= 0 && rect.bottom >= window.innerHeight;
 
-        // Create the reveal animation timeline
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: element,
-                start: "top top+=180",
-                end: "bottom bottom",
-                pin: true,
-                pinReparent: true,
-                scrub: true,
+            if (inView) {
+                document.body.style.overflowY = 'hidden';
+                section.style.overflowY = 'scroll';
+            } else {
+                document.body.style.overflowY = 'scroll';
+                section.style.overflowY = 'hidden';
             }
-        })
+        };
 
-        // Animate the first aside out very slowly and second aside in
-        tl.to(".first-aside", { autoAlpha: 0, y: -100, duration: 5, ease: "power3.inOut" })
-        tl.to(".second-aside", { autoAlpha: 1, y: 0, duration: 2, ease: "power3.inOut" }, "-=2")
-
-        // Add staggered animations for service cards in the second aside
-        tl.fromTo('.second-aside .service-card', { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 2, stagger: 0.5, ease: "power3.inOut" }, "-=1")
-    }, [])
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <section id='section'>
-            <div className='relative py-[1rem] px-[2rem] w-4/5 m-auto h-screen' ref={ref}>
-                <aside className='flex items-start justify-between first-aside'>
-                    <div className='flex flex-col gap-4 justify-between h-full'>
+        <section id='section' ref={sectionRef} className='sticky-section my-[4rem]'>
+            <div className='relative py-[2rem] px-[4rem] w-4/5 m-auto h-screen'>
+                <aside className='md:flex items-start justify-between first-aside gap-[4rem]'>
+                    <div className='flex flex-col gap-[2rem] justify-between h-full'>
                         <ServiceCard
                             title="Keyword Research"
                             text='Identifying relevant keywords for your business to optimize website content.'
@@ -55,8 +49,8 @@ const Service = () => {
                         <img src={people.src} alt="" className='object-contain w-full h-[700px]' />
                     </div>
                 </aside>
-                <aside className='flex items-start gap-[9rem] my-[1rem] second-aside'>
-                    <div className='flex flex-col gap-4 justify-between h-full'>
+                <aside className='flex items-start gap-[6rem] my-[2rem] second-aside'>
+                    <div className='flex flex-col gap-[2rem] justify-between h-full'>
                         <ServiceCard
                             iconText="optimize"
                             title="On & Off Page Optimization"
@@ -69,7 +63,7 @@ const Service = () => {
                             text="Creating high-quality, relevant content to attract and engage target audiences while also improving search rankings."
                             className='service-card' />
                     </div>
-                    <div className='flex flex-col gap-4 justify-between h-full mt-[2rem]'>
+                    <div className='flex flex-col gap-[2rem] justify-between h-full mt-[2rem]'>
                         <ServiceCard
                             text="Creating a comprehensive plan aligned with business goals and target audience."
                             title="Strategy development"
