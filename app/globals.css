@@ -37,3 +37,18 @@ html{
     text-wrap: balance;
   }
 }
+
+@media (min-width: 1024px) { 
+  .center-max-width {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+  }
+
+  .content-container {
+    max-width: 1440px;
+    width: 100%; 
+    margin: auto; 
+  }
+}
