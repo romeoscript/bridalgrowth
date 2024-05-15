@@ -19,7 +19,7 @@ const Service = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: element,
-                start: "top top+=100",
+                start: "top top+=180",
                 end: "bottom bottom",
                 pin: true,
                 pinReparent: true,
