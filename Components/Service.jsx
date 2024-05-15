@@ -1,3 +1,5 @@
+
+
 "use client"
 import React, { useEffect, useRef } from 'react'
 import ServiceCard from './ServiceCard'
@@ -41,8 +43,16 @@ const Service = () => {
             <div className='relative py-[1rem] px-[2rem] w-4/5 m-auto h-screen' ref={ref}>
                 <aside className='flex items-start justify-between first-aside'>
                     <div className='flex flex-col gap-4 justify-between h-full'>
-                        <ServiceCard className='service-card' />
-                        <ServiceCard className='service-card' />
+                    <ServiceCard
+                            title="Keyword Research"
+                            text='Identifying relevant keywords for your business to optimize website content.'
+                            iconText='magnify'
+                            className='service-card' />
+                        <ServiceCard
+                            title="Technical SEO"
+                            text='Optimizing website structure, content, and HTML elements to improve search engine rankings.'
+                            iconText='seo'
+                            className='service-card' />
                     </div>
                     <div className='flex-shrink-0'>
                         <img src={people.src} alt="" className='object-contain w-full h-auto' />
@@ -50,14 +60,32 @@ const Service = () => {
                 </aside>
                 <aside className='flex items-start gap-[9rem] my-[1rem] second-aside'>
                     <div className='flex flex-col gap-4 justify-between h-full'>
-                        <ServiceCard className='service-card' />
-                        <ServiceCard className='service-card' />
+                    <ServiceCard
+                            iconText="optimize"
+                            title="On & Off Page Optimization"
+                            text="Optimizing website structure, content, and HTML elements to improve search engine rankings.
+                        Building backlinks from authoritative websites to increase domain authority and improve search visibility."
+                            className='service-card' />
+                        <ServiceCard
+                            title="Content Marketing"
+                            iconText="content"
+                            text="Creating high-quality, relevant content to attract and engage target audiences while also improving search rankings."
+                            className='service-card' />
                     </div>
                     <div className='flex flex-col gap-4 justify-between h-full mt-[2rem]'>
-                        <ServiceCard className='service-card' />
-                        <ServiceCard className='service-card' />
+                    <ServiceCard
+                            text="Creating a comprehensive plan aligned with business goals and target audience."
+                            title="Strategy development"
+                            iconText="strategy"
+                            className='service-card' />
+                        <ServiceCard
+                            text="Designing visually appealing and engaging email templates."
+                            title="Email Campaign Design"
+                            iconText="campaign"
+                            className='service-card' />
                     </div>
                 </aside>
+                
             </div>
         </section>
     )
