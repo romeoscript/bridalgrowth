@@ -30,8 +30,8 @@ const Service = () => {
     }, []);
 
     return (
-        <section id='section' ref={sectionRef} className='sticky-section my-[4rem]'>
-            <div className='relative py-[2rem] px-[4rem] w-4/5 m-auto h-screen'>
+        <section id='section' ref={sectionRef} className='sticky-section md:my-[4rem]'>
+            <div className='relative py-[2rem] md:px-[4rem] w-4/5 m-auto h-screen'>
                 <aside className='md:flex items-start justify-between first-aside gap-[4rem]'>
                     <div className='flex flex-col gap-[2rem] justify-between h-full'>
                         <ServiceCard
@@ -49,7 +49,7 @@ const Service = () => {
                         <img src={people.src} alt="" className='object-contain w-full h-[700px]' />
                     </div>
                 </aside>
-                <aside className='flex items-start gap-[6rem] my-[2rem] second-aside'>
+                <aside className='md:flex items-start gap-[6rem] my-[2rem] second-aside'>
                     <div className='flex flex-col gap-[2rem] justify-between h-full'>
                         <ServiceCard
                             iconText="optimize"
