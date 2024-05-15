@@ -13,7 +13,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
       <Nav />
       <body className={inter.className}>
         <div className="center-max-width">
@@ -22,7 +21,6 @@ export default function RootLayout({ children }) {
           </div>
         </div>
       </body>
-      <Footer />
     </html>
   );
 }
