@@ -4,5 +4,6 @@ const nextConfig = {};
 
 export default withBundleAnalyzer({
     enabled: process.env.ANALYZE === 'true',
+    reactStrictMode: true,  
   })(nextConfig);
 
